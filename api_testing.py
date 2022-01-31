@@ -43,11 +43,3 @@ class booking_api_test:
     
     def DELETE_Booking(self):
         return requests.request("DELETE", self.url, headers=self.headers).text
-
-
-
-#test = booking_api_test()
-#print(test.POST_Booking())
-#print(test.GET_Booking())
-#print(test.PATCH_Booking())
-#print(test.DELETE_Booking())

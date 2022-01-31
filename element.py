@@ -12,6 +12,7 @@ class elements:
         self.driver = webdriver.Chrome(constans.PATH)
         self.driver.get(constans.URL)
         self.driver.maximize_window()
+        self.wait = WebDriverWait(self.driver, 2)
     
     def field(self, locator, string):
         #Does what names suggest
@@ -25,11 +26,11 @@ class elements:
     
     def get_element_of_all_days(self):
         #Finds all the elemet with the class "rbc-day-bg" and insert them to a list
-        return [element for element in WebDriverWait(self.driver, 2).until(EC.presence_of_all_elements_located(locators.book_room_all_days))]
+        return  list(self.wait.until(EC.presence_of_all_elements_located(locators.book_room_all_days)))
         
     def get_all_dates_that_are_avilable(self):
         #Finds all the elemet with the class "rbc-event-content" and insert them to a list, then gets the length of it to find how much "Unavailable" bars are
-        Unavailables = len([element for element in WebDriverWait(self.driver, 2).until(EC.presence_of_all_elements_located(locators.book_room_all_Unavailable))])
+        Unavailables = len(list(self.wait.until(EC.presence_of_all_elements_located(locators.book_room_all_Unavailable))))
         #When you book a room in the end of the week and goes to a new one it creates one extra bar that needed to be ignored
         if Unavailables >= 5:
             if Unavailables >= 15: Unavailables -= 3

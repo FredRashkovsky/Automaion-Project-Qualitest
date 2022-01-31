@@ -14,7 +14,7 @@ class HomePage(elements):
         
         self.driver.find_element(*locators.contect_us_submit_button).click()
         #gets the Confirmation
-        try: return  WebDriverWait(self.driver, 2).until(EC.presence_of_element_located(locators.constans_us_succsessful)).text
+        try: return  self.wait.until(EC.presence_of_element_located(locators.constans_us_succsessful)).text
         except: return "faild"
     
     def book_room(self):
@@ -35,7 +35,7 @@ class HomePage(elements):
                     #Simple math that gives me the next free days after the last "Unavailable" element and then "booking it"
                     self.drag_and_drop(days[(Unavailables * 3 )], days[(Unavailables * 3 ) + 1 ] , days[(Unavailables * 3 ) + 3 ])
                     self.driver.find_element(*locators.book_room_submit_button).click()
-                    success = WebDriverWait(self.driver, 1).until(EC.presence_of_element_located(locators.book_room_successful)).text
+                    success = self.wait.until(EC.presence_of_element_located(locators.book_room_successful)).text
                     self.driver.find_element(*locators.book_room_close_button).click()
                     return success
                 
@@ -57,5 +57,5 @@ class HomePage(elements):
         
         self.driver.find_element(*locators.book_room_submit_button).click()
         
-        try: return WebDriverWait(self.driver, 1).until(EC.presence_of_element_located(locators.book_room_all_alert)).text
+        try: return self.wait.until(EC.presence_of_element_located(locators.book_room_all_alert)).text
         except: return "faild"
