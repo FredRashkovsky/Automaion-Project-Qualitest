@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                % echo ' 3 | test_case.py --headless'
+                bat '% echo 3 | test_case.py --headless'
             }
         }
     }
