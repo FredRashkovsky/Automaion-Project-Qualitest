@@ -1,10 +1,13 @@
-properties([parameters([string(defaultValue: '3', name: 'runs', trim: true)])])
 pipeline {
    agent any
+    parameters{
+
+    string(name: 'runs', defaultValue: '3' , trim: true)
+    }
     stages {
         stage('build') {
             steps {
-            bat '% echo $runs | test_case.py --headless'
+            bat '% echo $params.runs | test_case.py --headless'
             
             }
 
