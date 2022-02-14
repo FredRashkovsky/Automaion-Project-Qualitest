@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent { image 'node:16.13.1-alpine' }
     stages {
         stage('build') {
             steps {
