@@ -7,6 +7,9 @@ pipeline {
         stage('build') {
             steps {
             bat "% echo ${params.runs} | test_case.py --headless"
+            catchError(message: 'Faild!', stageResult: 'FAILURE') {
+        // some block
+                }
             }
 
         }
