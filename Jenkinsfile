@@ -7,6 +7,7 @@ pipeline {
         stage('build') {
             steps {
             bat "% echo ${params.runs} | nosetests test_case.py --headless"
+            }
         }
     }
     post{
