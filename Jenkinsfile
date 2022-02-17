@@ -1,6 +1,5 @@
-Jenkinsfile (Declarative Pipeline)
 pipeline {
-   agent { docker { image 'python:3.10.1-alpine' } }
+   agent any
     parameters{
         string(name: 'runs', defaultValue: '3' , trim: true)
     }
