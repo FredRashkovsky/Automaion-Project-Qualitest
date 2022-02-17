@@ -7,7 +7,6 @@ pipeline {
         stage('build') {
             steps {
             bat "% echo ${params.runs} | test_case.py --headless"
-           sh 'echo "Fail!"; exit 1'
             }
 
         }
