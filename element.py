@@ -10,7 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 class elements:
     def __init__(self):
-        self.driver = webdriver.Chrome(ChromeDriverManager().install())
+        self.driver = webdriver.Chrome()
         self.wait = WebDriverWait(self.driver, 1)
         self.driver.get(constans.URL)
         self.driver.maximize_window()
