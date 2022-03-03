@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Installing packages') {
             steps {
-                withPythonEnv('C:/Users/fradi/AppData/Local/Programs/Python/Python310/') {
+                script {
                     sh 'pip install pytest'
                     sh 'pytest -q'
                 }
