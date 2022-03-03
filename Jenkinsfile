@@ -2,9 +2,9 @@ pipeline {
    agent any
     stages {
         stage('build') {
-            steps {
-                powershell 'pip intall pytest'
-                powershell 'pytest --html=report.html --junitxml=path -q'
+            withPythonEnv('python3') {
+                sh 'pip install pytest'
+                sh 'pytest --html=report.html --junitxml=path -q'
             }
         }
     }
