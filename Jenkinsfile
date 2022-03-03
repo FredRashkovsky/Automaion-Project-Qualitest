@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('build') {
             steps {
-                bat 'python -m pytest -q'      
+                bat 'test_case.py --headless'      
             }
         }
     }
