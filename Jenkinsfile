@@ -5,7 +5,7 @@ pipeline {
             steps {
                 withPythonEnv('C:/Users/fradi/AppData/Local/Programs/Python/Python310/') {
                     sh 'pip install pytest'
-                    sh 'pytest-q'
+                    sh 'pytest -q'
                 }
             }
         }
