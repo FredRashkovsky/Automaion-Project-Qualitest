@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-            bat "pip install pytest"
-            bat "pytest --html=report.html --junitxml=path -q"
+                bat 'pytest --html=report.html --junitxml=path -q'
             }
         }
     }
