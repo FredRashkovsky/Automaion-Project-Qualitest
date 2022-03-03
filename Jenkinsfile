@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                powershell 'pip intall pytest'
                 powershell 'pytest --html=report.html --junitxml=path -q'
             }
         }
