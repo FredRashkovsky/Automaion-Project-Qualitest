@@ -4,8 +4,7 @@ pipeline {
         stage('Installing packages') {
             steps {
                 script {
-                    sh 'pip install pytest'
-                    sh 'pytest -q'
+                    sh 'python -m pytest -q'
                 }
             }
         }
