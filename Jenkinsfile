@@ -1,11 +1,10 @@
 pipeline {
    agent any
-    stages {
-        stage('Installing packages') {
+    stages{
+        stage('build') {
             steps {
-                script {
-                    sh 'python -m pytest -q'
-                }
+                sh 'python -m pytest -q'
+                
             }
         }
     }
