@@ -1,12 +1,11 @@
 from HomePage import HomePage
 from api_testing import booking_api_test
-
+import pytest
 
 class TestRestfulBooker:
     
     def setup_method(self):
         self.new_test = HomePage()
-        self.verificationErrors = []
     
     def test_contect_us(self):
         self.new_test.contect_us() == "We'll get back to you about"
@@ -25,7 +24,6 @@ class TestAPI:
     
     def setup_method(self):
         self.new_test = booking_api_test()
-        self.Errors = []
         assert self.new_test.POST_Booking()['booking']["firstname"] == "Fred"
 
     
@@ -38,3 +36,7 @@ class TestAPI:
     
     def test_DELETE(self):
         assert self.new_test.DELETE_Booking() == "Created"
+
+
+if __name__ == '__main__':
+    pytest.main()
