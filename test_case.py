@@ -39,4 +39,4 @@ class TestAPI:
 
 
 if __name__ == '__main__':
-    pytest.main(["-qq", "html=report.html"])
+    pytest.main()
