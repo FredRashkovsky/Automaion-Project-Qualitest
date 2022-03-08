@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                bat "pip install pytest"
                 bat "test_case.py --headless"
             }
             
