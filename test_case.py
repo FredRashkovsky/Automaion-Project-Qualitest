@@ -36,7 +36,3 @@ class TestAPI:
     
     def test_DELETE(self):
         assert self.new_test.DELETE_Booking() == "Created"
-
-
-if __name__ == '__main__':
-    pytest.main()
