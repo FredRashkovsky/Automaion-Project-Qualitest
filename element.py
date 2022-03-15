@@ -7,18 +7,21 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from Locators import locators
 from webdriver_manager.chrome import ChromeDriverManager
+import csv
 
 class elements:
     def __init__(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
-        self.wait = WebDriverWait(self.driver, 1)
+        self.wait = WebDriverWait(self.driver, 4)
         self.driver.get(constans.URL)
         self.driver.maximize_window()
-        
-    
+        self.csv_file = open('data.csv', 'r')
+        self.csv_file = csv.DictReader(self.csv_file)
+
+
     def field(self, locator, string):
         #Does what names suggest
-        self.driver.find_element(*locator).send_keys(string, Keys.ENTER)
+        self.wait.until(EC.element_to_be_clickable(locator)).send_keys(string, Keys.ENTER)
 
     def drag_and_drop(self, element, middleTarget, target):
         #Holds and drags the mouse to a diffrent element
