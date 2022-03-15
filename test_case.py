@@ -1,6 +1,5 @@
 from HomePage import HomePage
 from api_testing import booking_api_test
-import pytest
 
 class TestRestfulBooker:
     

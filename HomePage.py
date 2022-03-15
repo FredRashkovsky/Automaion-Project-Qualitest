@@ -37,7 +37,7 @@ class HomePage(elements):
             except: return "falild"
             #fills all the fields
             for index, x in enumerate(new_dict.items()): 
-                self.field(locators.book_room_fileds_locators[index],x[1])
+                self.field(locators.book_room_fileds_locators[index],x[1].strip())
             while True:
                 #If it's bigger it will be out of index
                 if (Unavailables * 3 + 3 ) < len(days):
@@ -47,7 +47,7 @@ class HomePage(elements):
                         self.driver.find_element(*locators.book_room_submit_button).click()
                         assert self.wait.until(EC.presence_of_element_located(locators.book_room_successful))
                         self.driver.find_element(*locators.book_room_close_button).click()
-                
+                        break
                     except: return "falild"
             
                 else:
@@ -75,5 +75,3 @@ class HomePage(elements):
             #result = self.wait.until(EC.presence_of_element_located(locators.book_room_all_alert)).text
             #assert result[:5] == "The r" 
             self.driver.refresh()
-
-test = HomePage().book_room_taken()
