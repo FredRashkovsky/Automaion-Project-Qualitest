@@ -7,7 +7,7 @@ pipeline {
         stage('build') {
             steps {
                 bat "pytest --html=report.html"
-                bat "newman run https://api.getpostman.com/collections/19310415-9ceacf35-139d-4482-b6e1-b03f6fc16651?apikey=${params.apikey}"
+                sh "newman run https://api.getpostman.com/collections/19310415-9ceacf35-139d-4482-b6e1-b03f6fc16651?apikey=${params.apikey}"
             }
             
         }
