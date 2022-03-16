@@ -4,9 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 bat "pytest --html=report.html"
-                nodejs('newman') {
-                    npm "newman run https://api.getpostman.com/collections/19310415-9ceacf35-139d-4482-b6e1-b03f6fc16651?apikey=PMAK-6231d0b277fb913ff4f5503f-c3af470ee838ca87e0a54f22e039938567"
-                }
+                bat 'newman run https://api.getpostman.com/collections/19310415-9ceacf35-139d-4482-b6e1-b03f6fc16651?apikey=PMAK-6231d0b277fb913ff4f5503f-c3af470ee838ca87e0a54f22e039938567'
             }
             
         }
