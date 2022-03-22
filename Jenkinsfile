@@ -7,8 +7,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat 'python --version'
-                bat "newman run https://api.getpostman.com/collections/19310415-9ceacf35-139d-4482-b6e1-b03f6fc16651?apikey=${params.apikey} --disable-unicode"
+                powershell 'python --version'
+                powershell "newman run https://api.getpostman.com/collections/19310415-9ceacf35-139d-4482-b6e1-b03f6fc16651?apikey=${params.apikey} --disable-unicode"
             }
             
         }
