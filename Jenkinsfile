@@ -1,24 +1,17 @@
+cat <<-'JENKINSFILE' > Jenkinsfile
 pipeline {
-   agent any
-   tools {nodejs "newman"}
-     parameters {
-         string(name: 'apikey', defaultValue: '', description: 'api-postman-key')
-     }
-    stages {
-        stage('build') {
-            steps {
-                sh "newman run https://api.getpostman.com/collections/19310415-9ceacf35-139d-4482-b6e1-b03f6fc16651?apikey=${params.apikey} --disable-unicode"
-                sh 'test_case.py'
-            }
-            
-        }
+  agent { docker { image 'python:3.7.2' } }
+  stages {
+    stage('build') {
+      steps {
+        sh 'pip install -r requirements.txt'
+      }
     }
-    post{
-        failure {  
-            mail bcc: '', body: 'test Failed!', cc: '', from: '', replyTo: '', subject: 'Pipline - test', to: 'fradik890@gmail.com'  
-         } 
-         changed {  
-             mail bcc: '', body: 'test was ok!', cc: '', from: '', replyTo: '', subject: 'Pipline - test', to: 'fradik890@gmail.com'  
-         }
+    stage('test') {
+      steps {
+        sh 'python test.py'
+      }   
     }
+  }
 }
+JENKINSFILE
