@@ -9,7 +9,7 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'python test.py'
+        sh 'pytest --html=report.html'
       }   
     }
   }
