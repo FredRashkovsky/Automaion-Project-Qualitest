@@ -1,6 +1,6 @@
 pipeline {
-   agent { docker { image 'python:3.10.1-alpine' } }
-   tools {nodejs "newman"}
+   agent any
+   tools {nodejs "newman", docker { image 'python:3.10.1-alpine' }}
      parameters {
          string(name: 'apikey', defaultValue: '', description: 'api-postman-key')
      }
